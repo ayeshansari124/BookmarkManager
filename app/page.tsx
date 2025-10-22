@@ -20,7 +20,8 @@ export default function HomePage() {
   }, [bookmarks]);
 
   const addBookmark = (bookmark: Bookmark) => setBookmarks([...bookmarks, bookmark]);
-  const removeBookmark = (index: number) => setBookmarks(bookmarks.filter((_, i) => i !== index));
+  const removeBookmark = (index: number) =>
+    setBookmarks(bookmarks.filter((_, i) => i !== index));
 
   return (
     <div className="flex flex-col items-center gap-5 text-center w-full sm:max-w-md mx-auto bg-neutral-300 mt-12 rounded-xl p-6 sm:p-12 shadow-lg">
