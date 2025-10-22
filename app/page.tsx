@@ -19,17 +19,11 @@ export default function HomePage() {
     localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
   }, [bookmarks]);
 
-  const addBookmark = (bookmark: Bookmark) => {
-    setBookmarks([...bookmarks, bookmark]);
-  };
-
-  const removeBookmark = (index: number) => {
-    const updated = bookmarks.filter((_, i) => i !== index);
-    setBookmarks(updated);
-  };
+  const addBookmark = (bookmark: Bookmark) => setBookmarks([...bookmarks, bookmark]);
+  const removeBookmark = (index: number) => setBookmarks(bookmarks.filter((_, i) => i !== index));
 
   return (
-    <div className="flex flex-col items-center gap-5 text-center max-w-md mx-auto bg-neutral-300 mt-12 rounded-xl p-12 shadow-lg">
+    <div className="flex flex-col items-center gap-5 text-center w-full sm:max-w-md mx-auto bg-neutral-300 mt-12 rounded-xl p-6 sm:p-12 shadow-lg">
       <h1 className="text-3xl font-bold text-black">Bookmark Manager</h1>
 
       <BookmarkForm onAdd={addBookmark} />

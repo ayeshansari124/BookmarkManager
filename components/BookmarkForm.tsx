@@ -16,37 +16,33 @@ export default function BookmarkForm({ onAdd }: Props) {
       alert("Please enter both name and valid URL");
       return;
     }
-
-    const newBookmark: Bookmark = { name, url };
-    onAdd(newBookmark);
-
+    onAdd({ name, url });
     setName("");
     setUrl("");
   };
 
   return (
-    <>
+    <div className="flex flex-col items-center gap-3 w-full">
       <input
         type="text"
         value={name}
         onChange={(e) => setName(e.target.value)}
         placeholder="Enter Bookmark Name"
-        className="w-4/5 p-2 rounded-lg border border-gray-300 text-black font-bold"
+        className="w-full sm:w-4/5 p-2 rounded-lg border border-gray-300 text-black font-bold"
       />
       <input
         type="url"
         value={url}
         onChange={(e) => setUrl(e.target.value)}
         placeholder="Enter Bookmark URL"
-        className="w-4/5 p-2 rounded-lg border border-gray-300  text-black font-bold"
+        className="w-full sm:w-4/5 p-2 rounded-lg border border-gray-300 text-black font-bold"
       />
-
       <button
         onClick={handleSubmit}
-        className="w-[150px] px-6 py-2 rounded-lg bg-green-600 text-white hover:bg-green-800 transition-all"
+        className="w-full sm:w-[150px] px-6 py-2 rounded-lg bg-green-600 text-white hover:bg-green-800 transition-all"
       >
         Add Bookmark
       </button>
-    </>
+    </div>
   );
 }
